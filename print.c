@@ -2,7 +2,7 @@
 
 int main(int argc, char *argv[])
 {
-	int n = 234567897;
+	int n = 10;
 	char *str = "ASDsadsad";
 
 	_printf("Hello %d, %s\n", n, str);
