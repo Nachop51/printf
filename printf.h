@@ -13,7 +13,7 @@ int print_char(va_list);
 int power(int a, int b);
 
 /* Struct */
-typedef struct printf
+typedef struct print
 {
 	char *s;
 	int (*f)(va_list);

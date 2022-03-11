@@ -3,13 +3,13 @@
 
 int _printf(char * format, ...)
 {
-	print_f printf[] = {
+	print_f print[] = {
 		{"s", print_string},
 		{"d", print_int},
 		{"c", print_char},
 		{NULL, NULL}
 	};
-	int i = 0, j = 0;
+	int i = 0, j = 0, count = 0;
 	va_list args;
 
 	va_start(args, format);
@@ -19,17 +19,17 @@ int _printf(char * format, ...)
 		if (format[i] == '%')
 		{
 			j = 0;
-			while (printf[j].s[0])
+			while (print[j].s[0])
 			{
-				if (printf[j].s[0] == format[i + 1])
+				if (print[j].s[0] == format[i + 1])
 				{
-					printf[j].f(args);
+					count += print[j].f(args);
 					i++;
 					break;
 				}
 				j++;
 			}
-			if (format[i + 2] != '\0')
+			if (format[i + 1] != '\0')
 			{
 				i++;
 				continue;
@@ -38,11 +38,12 @@ int _printf(char * format, ...)
 				break;
 		}
 		_stdout(format[i]);
+		count++;
 		i++;
 	}
-
+	printf("%d\n", count - 1);
 	va_end(args);
-	return (i);
+	return (count);
 }
 
 int print_string(va_list args)
@@ -59,17 +60,18 @@ int print_string(va_list args)
 }
 
 /**
- * print_int - prints an integer
+ * print_number - prints an integer
  * @n: number to print
  */
 int print_int(va_list args)
 {
-	int count = 0, var = 1, n = va_arg(args, int), i = 0;
+	int count = 0, var = 1, n = va_arg(args, int), count_char = 0;
 	unsigned int out, test;
 
 	if (n < 0)
 	{
 		_stdout('-');
+		count_char++;
 		out = n * -1;
 	}
 	else
@@ -85,12 +87,12 @@ int print_int(va_list args)
 	{
 		var = power(10, count);
 		_stdout((out / var) % 10 + '0');
+		count_char++;
 		count--;
-		i++;
 	}
 	_stdout(out % 10 + '0');
-
-	return(i);
+	count_char++;
+	return (count_char);
 }
 
 int print_char(va_list args)
