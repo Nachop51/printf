@@ -6,6 +6,7 @@ int _printf(char * format, ...)
 	print_f print[] = {
 		{"s", print_string},
 		{"d", print_int},
+		{"i", print_int},
 		{"c", print_char},
 		{NULL, NULL}
 	};
@@ -13,7 +14,6 @@ int _printf(char * format, ...)
 	va_list args;
 
 	va_start(args, format);
-	
 	while (format[i])
 	{
 		if (format[i] == '%')
@@ -41,9 +41,8 @@ int _printf(char * format, ...)
 		count++;
 		i++;
 	}
-	printf("%d\n", count - 1);
 	va_end(args);
-	return (count);
+	return (count - 1);
 }
 
 int print_string(va_list args)
