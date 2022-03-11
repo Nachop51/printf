@@ -2,8 +2,10 @@
 
 int main(int argc, char *argv[])
 {
-	char *str = "Hasdsad";
+	int n = 10;
+	char *str = "HSLJLHS";
 
-	_printf("Hello %s", str);
+	_printf("Hello %d\n", n);
+	_printf("Hello %s\n", str);
 	return (0);
 }

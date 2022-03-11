@@ -7,13 +7,42 @@ int _printf(char * format, ...)
 		{"s", print_string},
 		{"d", print_int},
 		{"c", print_char},
+		{NULL, NULL}
 	};
+	int i = 0, j = 0;
 	va_list args;
 
 	va_start(args, format);
-	print_string(args);
+	
+	while (format[i])
+	{
+		if (format[i] == '%')
+		{
+			j = 0;
+			while (printf[j].s[0])
+			{
+				if (printf[j].s[0] == format[i + 1])
+				{
+					printf[j].f(args);
+					i++;
+					break;
+				}
+				j++;
+			}
+			if (format[i + 2] != '\0')
+			{
+				i++;
+				continue;
+			}
+			else
+				break;
+		}
+		_stdout(format[i]);
+		i++;
+	}
 
 	va_end(args);
+	return (i);
 }
 
 int print_string(va_list args)
