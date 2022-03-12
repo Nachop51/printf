@@ -91,5 +91,13 @@ int main(void)
 	_printf("%R\n", "Hola");
 	_printf("%R\n", "Ubyn");
 	_printf("%r\n", "Hola");
+	_printf("%x\n", 45);
+	_printf("%x\n", 4512);
+	_printf("%X\n", 45);
+	_printf("%X\n", 4512);
+	printf("%x\n", 45);
+	printf("%x\n", 4512);
+	printf("%X\n", 45);
+	printf("%X\n", 4512);
 	return (0);
 }

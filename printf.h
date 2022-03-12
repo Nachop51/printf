@@ -28,6 +28,9 @@ int print_hexadecimal(va_list);
 int print_heXadecimal(va_list);
 int print_reversed(va_list);
 int print_rot13(va_list);
-int power(int a, int b);
+int power(int, int);
+
+/*Aux function*/
+int hexSolve(int, char);
 
 #endif

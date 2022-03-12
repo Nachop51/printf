@@ -70,3 +70,19 @@ int print_reversed(va_list args)
 	while (i--)
 		_stdout(s[i]);
 }
+
+int hexSolve(int n, char type)
+{
+	char *hex = "abcdef";
+	char *Hex = "ABCDEF";
+
+	n -= 10;
+	if (type == 'x')
+	{
+		return (hex[n]);
+	}
+	else
+	{
+		return (Hex[n]);
+	}
+}

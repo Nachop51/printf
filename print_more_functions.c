@@ -89,10 +89,10 @@ int print_hexadecimal(va_list args)
 
 	while (n > 0)
 	{
-		if (n % 2 == 0)
-			s[i] = '0';
+		if (n % 16 > 9)
+			s[i] = hexSolve(n % 16, 'x');
 		else
-			s[i] = '1';
+			s[i] = n + 48;
 		n /= 16;
 		i++;
 	}
@@ -124,11 +124,11 @@ int print_heXadecimal(va_list args)
 
 	while (n > 0)
 	{
-		if (n % 16 == 0)
-			s[i] = '0';
+		if (n % 16 > 9)
+			s[i] = hexSolve(n % 16, 'X');
 		else
-			s[i] = '1';
-		n /= 2;
+			s[i] = n + 48;
+		n /= 16;
 		i++;
 	}
 	s[i] = '\0';
