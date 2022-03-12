@@ -23,6 +23,11 @@ int print_percentage(va_list);
 int print_unsigned_int(va_list);
 int print_binary(va_list);
 int print_char(va_list);
+int print_octal(va_list);
+int print_hexadecimal(va_list);
+int print_heXadecimal(va_list);
+int print_reversed(va_list);
+int print_rot13(va_list);
 int power(int a, int b);
 
 #endif

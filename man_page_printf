@@ -1,0 +1,16 @@
+.\" Manpage for my own _printf.
+.TH man 3 "15 Mar 2022" "1.0" "_printf man page"
+.SH NAME
+printf \- prints out all what you want to format 
+.SH SYNOPSIS
+_printf [USERNAME]
+.SH DESCRIPTION
+_printf is function that takes a format and can take n parameters, the function format those parameters, and prints them all
+.SH OPTIONS
+The _printf can take 0 or n values.
+.SH SEE ALSO
+_printf(1), _printf(2).
+.SH BUGS
+No known bugs.
+.SH AUTHOR
+Nacho Peralta (Nachop51 @github)

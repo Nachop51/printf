@@ -79,9 +79,17 @@ int main(void)
 	_printf("%b\n", 52);
 	_printf("%b\n", 554);
 	_printf("%b\n", 5324);
-	_printf("%o\n", 15);
-	_printf("%o\n", 52);
-	_printf("%o\n", 554);
-	_printf("%o\n", 5324);
+	printf("%o\n", 15);
+	_printf(">%o\n", 15);
+	printf("%o\n", 52);
+	_printf(">%o\n", 52);
+	printf("%o\n", 554);
+	_printf(">%o\n", 554);
+	printf("%o\n", 5324);
+	_printf(">%o\n", 5324);
+	printf("%010d\n", -10);
+	_printf("%R\n", "Hola");
+	_printf("%R\n", "Ubyn");
+	_printf("%r\n", "Hola");
 	return (0);
 }

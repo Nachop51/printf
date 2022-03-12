@@ -33,3 +33,40 @@ int print_aux(const char *format, print_f print[], va_list args)
 	}
 	return (count);
 }
+
+int print_rot13(va_list args)
+{
+	int i = 0, j = 0;
+	char target[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char replace[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char *s = va_arg(args, char *);
+
+	if (s == NULL)
+		return (-1);
+	while (s[i])
+	{
+		j = 0;
+		while (target[j])
+		{
+			if (target[j] == s[i])
+			{
+				_stdout(replace[j]);
+				break;
+			}
+			j++;
+		}
+		i++;
+	}
+}
+
+int print_reversed(va_list args)
+{
+	int i;
+	char *s = va_arg(args, char *);
+
+	while (s[i])
+		i++;
+
+	while (i--)
+		_stdout(s[i]);
+}

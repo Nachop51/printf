@@ -10,6 +10,11 @@ int _printf(const char * format, ...)
 		{"c", print_char},
 		{"%", print_percentage},
 		{"b", print_binary},
+		{"o", print_octal},
+		{"x", print_hexadecimal},
+		{"X", print_heXadecimal},
+		{"r", print_reversed},
+		{"R", print_rot13},
 		{"u", print_unsigned_int},
 		{NULL, NULL}
 	};
