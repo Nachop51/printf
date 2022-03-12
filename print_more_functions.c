@@ -1,15 +1,26 @@
 #include "printf.h"
-#include <stdio.h>
 
+/**
+ * print_percentage - prints out a percetange
+ * @args: list of arguments
+ *
+ * Return: the number of char printed (1)
+ */
 int print_percentage(__attribute__((unused))va_list args)
 {
 	_stdout('%');
 	return (1);
 }
 
+/**
+ * print_binary - converts a number into binary
+ * @args: list of arguments
+ *
+ * Return: amount of chars printed
+ */
 int print_binary(va_list args)
 {
-	int n = va_arg(args, unsigned int), i = 0, j = 0, a = n;
+	unsigned int n = va_arg(args, unsigned int), i = 0, j = 0, a = n;
 	char *s;
 
 	while (a != 0)
@@ -42,9 +53,15 @@ int print_binary(va_list args)
 	return (j);
 }
 
+/**
+ * print_octal - converts a number into octal base
+ * @args: list of arguments
+ *
+ * Return: amount of chars printed
+ */
 int print_octal(va_list args)
 {
-	int n = va_arg(args, unsigned int), i = 0, j = 0, a = n;
+	unsigned int n = va_arg(args, unsigned int), i = 0, j = 0, a = n;
 	char *s;
 
 	while (a != 0)
@@ -73,44 +90,15 @@ int print_octal(va_list args)
 	return (j);
 }
 
+/**
+ * print_hexadecimal - converts a number into hexadecimal with lower letters
+ * @args: list of arguments
+ *
+ * Return: amount of chars printed
+ */
 int print_hexadecimal(va_list args)
 {
-	int n = va_arg(args, unsigned int), i = 0, j = 0, a = n;
-	char *s;
-
-	while (a != 0)
-	{
-		a /= 16;
-		j++;
-	}
-	s = malloc(sizeof(char) * j + 1);
-	if (s == NULL)
-		return (-1);
-
-	while (n > 0)
-	{
-		if (n % 16 >= 10)
-			s[i] = hexSolve(n % 16, 'x');
-		else
-			s[i] = n % 16 + 48;
-		n /= 16;
-		i++;
-	}
-	s[i] = '\0';
-	j = 0;
-	while (i != 0)
-	{
-		i--;
-		_stdout(s[i]);
-		j++;
-	}
-	free(s);
-	return (j);
-}
-
-int print_heXadecimal(va_list args)
-{
-	int n = va_arg(args, unsigned int), i = 0, j = 0, a = n;
+	unsigned int n = va_arg(args, unsigned int), i = 0, j = 0, a = n;
 	char *s, temp;
 
 	while (a != 0)
@@ -126,7 +114,52 @@ int print_heXadecimal(va_list args)
 	{
 		if (n % 16 >= 10)
 		{
-			hexSolve(n % 16, 'X');
+			s[i] = ((n % 16) - 10) + 97;
+		}
+		else
+		{
+			s[i] = n % 16 + 48;
+		}
+		n /= 16;
+		i++;
+	}
+	s[i] = '\0';
+	j = 0;
+	while (i != 0)
+	{
+		i--;
+		_stdout(s[i]);
+		j++;
+	}
+	free(s);
+	return (j);
+}
+
+/**
+ * print_heXadecimal - converts a number into hexadecimal with upper letters
+ * @args: list of arguments
+ *
+ * Return: amount of chars printed
+ */
+int print_heXadecimal(va_list args)
+{
+	unsigned int n = va_arg(args, unsigned int), i = 0, j = 0, a = n;
+	char *s, temp;
+
+	while (a != 0)
+	{
+		a /= 16;
+		j++;
+	}
+	s = malloc(sizeof(char) * j + 1);
+	if (s == NULL)
+		return (-1);
+
+	while (n > 0)
+	{
+		if (n % 16 >= 10)
+		{
+			s[i] = ((n % 16) - 10) + 65;
 		}
 		else
 			s[i] = n % 16 + 48;

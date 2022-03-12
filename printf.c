@@ -1,7 +1,13 @@
 #include "printf.h"
-#include <stdio.h>
 
-int _printf(const char * format, ...)
+/**
+ * _printf - copy of the actual function "printf"
+ * @format: way to format the parameters and text
+ * @...: n parameters
+ *
+ * Return: The amount of char printed
+ */
+int _printf(const char *format, ...)
 {
 	print_f print[] = {
 		{"s", print_string},

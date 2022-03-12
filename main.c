@@ -91,13 +91,22 @@ int main(void)
 	_printf("%R\n", "Hola");
 	_printf("%R\n", "Ubyn");
 	_printf("%r\n", "Hola");
-	printf("%x\n", 20);
-	_printf(">%x\n", 20);
-	printf("%x\n", 200);
-	_printf(">%X\n", 200);
+	printf("%x\n", UINT_MAX);
+	_printf("-> %x\n", UINT_MAX);
+	printf("%x\n", 160);
+	_printf("-> %x\n", 160);
+	printf("%x\n", INT_MAX);
+	_printf("-> %x\n", INT_MAX);
+	printf("%x\n", 24908);
+	_printf("-> %x\n", 24908);
+	printf("%X\n", 29);
+	_printf("-> %X\n", 29);
+	printf("%X\n", 160);
+	_printf("-> %X\n", 160);
 	printf("%X\n", 64);
-	_printf(">%x\n", 64);
+	_printf("-> %X\n", 64);
 	printf("%X\n", 24908);
-	_printf(">%X\n", 24908);
+	_printf("-> %X\n", 24908);
+	printf("%r", "str");
 	return (0);
 }

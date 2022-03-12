@@ -1,11 +1,16 @@
-#ifndef PRINT_H
-#define PRINT_H
+#ifndef MAIN_H
+#define MAIN_H
 
 /* Libraries */
 #include <stdarg.h>
 #include <stdlib.h>
 
 /* Struct */
+/**
+ * struct print - Main structure that takes a char and a function
+ * @s: name or way to compare the function
+ * @f: pointer to a function
+ */
 struct print
 {
 	char *s;
@@ -15,7 +20,7 @@ typedef struct print print_f;
 
 /* Functions */
 int _stdout(char);
-int _printf(const char * format, ...);
+int _printf(const char *format, ...);
 int print_aux(const char *format, print_f print[], va_list args);
 int print_string(va_list);
 int print_int(va_list);
@@ -29,8 +34,5 @@ int print_heXadecimal(va_list);
 int print_reversed(va_list);
 int print_rot13(va_list);
 int power(int, int);
-
-/*Aux function*/
-int hexSolve(int, char);
 
 #endif

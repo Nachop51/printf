@@ -1,6 +1,14 @@
 #include "printf.h"
 #include <stdio.h>
 
+/**
+ * print_aux - auxiliar function of _printf
+ * @format: text and ways to format the output
+ * @print: struct of indetifiers and functions
+ * @args: list of arguments
+ *
+ * Return: amount of chars printed
+ */
 int print_aux(const char *format, print_f print[], va_list args)
 {
 	int i = 0, j = 0, count = 0;
@@ -35,6 +43,12 @@ int print_aux(const char *format, print_f print[], va_list args)
 	return (count);
 }
 
+/**
+ * print_rot13 - traduces a string into rot13
+ * @args: list of arguments
+ *
+ * Return: the amount of chars printed
+ */
 int print_rot13(va_list args)
 {
 	int i = 0, j = 0;
@@ -60,6 +74,12 @@ int print_rot13(va_list args)
 	}
 }
 
+/**
+ * print_reversed - prints out a string reversed
+ * @args: list of arguments
+ *
+ * Return: amount of chars printed
+ */
 int print_reversed(va_list args)
 {
 	int i;
@@ -70,20 +90,4 @@ int print_reversed(va_list args)
 
 	while (i--)
 		_stdout(s[i]);
-}
-
-int hexSolve(int n, char type)
-{
-	char *hex = "abcdef";
-	char *Hex = "ABCDEF";
-
-	n -= 10;
-	if (type == 'x')
-	{
-		return (hex[n]);
-	}
-	else
-	{
-		return (Hex[n]);
-	}
 }
