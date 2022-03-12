@@ -9,6 +9,7 @@ int _printf(const char * format, ...)
 		{"i", print_int},
 		{"c", print_char},
 		{"%", print_percentage},
+		{"b", print_binary},
 		{"u", print_unsigned_int},
 		{NULL, NULL}
 	};
