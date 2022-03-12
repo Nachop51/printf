@@ -4,7 +4,7 @@
  * _stdout - Prints out a char to the standard output
  * @c: Char to be printed
  *
- * @Return: no error
+ * Return: no error
  */
 int _stdout(char c)
 {

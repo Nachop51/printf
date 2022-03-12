@@ -1,7 +1,7 @@
 .\" Manpage for my own _printf.
 .TH man 3 "15 Mar 2022" "1.0" "_printf man page"
 .SH NAME
-printf \- prints out all what you want to format 
+printf \- prints out all what you want to format
 .SH SYNOPSIS
 _printf [USERNAME]
 .SH DESCRIPTION

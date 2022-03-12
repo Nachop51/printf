@@ -1,10 +1,16 @@
 #include "printf.h"
 
+/**
+ * print_string - prints out a string
+ * @args: list of arguments
+ *
+ * Return: amount of chars printed
+ */
 int print_string(va_list args)
 {
 	int i = 0;
 	char *str;
-	
+
 	str = va_arg(args, char *);
 	if (str == NULL)
 		str = "(null)";
@@ -17,8 +23,10 @@ int print_string(va_list args)
 }
 
 /**
- * print_number - prints an integer
- * @n: number to print
+ * print_int - prints an integer
+ * @args: number to print
+ *
+ * Return: amount of chars printed
  */
 int print_int(va_list args)
 {
@@ -52,6 +60,12 @@ int print_int(va_list args)
 	return (count_char);
 }
 
+/**
+ * print_unsigned_int - prints out an unsigned integer
+ * @args: number to print
+ *
+ * Return: amount of chars printed
+ */
 int print_unsigned_int(va_list args)
 {
 	unsigned int count = 0, var = 1, n = va_arg(args, unsigned int);
@@ -75,6 +89,12 @@ int print_unsigned_int(va_list args)
 	return (count_char);
 }
 
+/**
+ * print_char - prints out a char
+ * @args: char to print
+ *
+ * Return: amount of chars printed (1)
+ */
 int print_char(va_list args)
 {
 	_stdout(va_arg(args, int));
@@ -82,7 +102,7 @@ int print_char(va_list args)
 }
 
 /**
- * power - sadsad
+ * power - elevates a to the power of b
  * @a: first parameter
  * @b: second parameter
  *
