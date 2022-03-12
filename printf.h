@@ -3,20 +3,25 @@
 
 /* Libraries */
 #include <stdarg.h>
-
-/* Functions */
-int _stdout(char);
-int _printf(char * format, ...);
-int print_string(va_list);
-int print_int(va_list);
-int print_char(va_list);
-int power(int a, int b);
+#include <stdlib.h>
 
 /* Struct */
-typedef struct print
+struct print
 {
 	char *s;
 	int (*f)(va_list);
-} print_f;
+};
+typedef struct print print_f;
+
+/* Functions */
+int _stdout(char);
+int _printf(const char * format, ...);
+int print_aux(const char *format, print_f print[], va_list args);
+int print_string(va_list);
+int print_int(va_list);
+int print_percentage(va_list);
+int print_unsigned_int(va_list);
+int print_char(va_list);
+int power(int a, int b);
 
 #endif
