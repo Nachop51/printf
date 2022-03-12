@@ -92,7 +92,7 @@ int print_hexadecimal(va_list args)
 		if (n % 16 >= 10)
 			s[i] = hexSolve(n % 16, 'x');
 		else
-			s[i] = n + 48;
+			s[i] = n % 16 + 48;
 		n /= 16;
 		i++;
 	}
@@ -126,12 +126,19 @@ int print_heXadecimal(va_list args)
 	{
 		if (n % 16 >= 10)
 		{
+<<<<<<< HEAD
+			hexSolve(n % 16, 'X');
+		}
+		else
+			s[i] = n % 16 + 48;
+=======
 			temp = hexSolve(n % 16, 'X');
 			temp = s[i];
 		}
 		else
 			s[i] = n + 48;
 		printf("---%c\n", s[i]);
+>>>>>>> 718307d4f367c56265ad9a6f6bb8929d6f237f7d
 		n /= 16;
 		i++;
 	}

@@ -1,4 +1,5 @@
 #include "printf.h"
+#include <stdio.h>
 
 int print_aux(const char *format, print_f print[], va_list args)
 {
