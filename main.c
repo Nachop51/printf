@@ -85,10 +85,13 @@ int main(void)
 	_printf(">%o\n", 554);
 	printf("%o\n", 5324);
 	_printf(">%o\n", 5324);
+	_printf(">PROBANDO LA FUNCION %%010d ABAJO\n\n");
 	printf("%010d\n", -10);
+	_printf(">PROBANDO ROT13 Y REVERSED STRING\n\n");
 	_printf(">%R\n", "Hola");
 	_printf(">%R\n", "Ubyn");
 	_printf(">%r\n", "Hola");
+	_printf("\n>PROBANDO HEXADECIMAL\n");
 	printf("%x\n", UINT_MAX);
 	_printf("-> %x\n", UINT_MAX);
 	printf("%x\n", 160);
@@ -97,6 +100,7 @@ int main(void)
 	_printf("-> %x\n", INT_MAX);
 	printf("%x\n", 24908);
 	_printf("-> %x\n", 24908);
+	_printf("\n>PROBANDO HEXADECIMAL MAYUSCULA\n\n");
 	printf("%X\n", 29);
 	_printf("-> %X\n", 29);
 	printf("%X\n", 160);
@@ -105,17 +109,22 @@ int main(void)
 	_printf("-> %X\n", 64);
 	printf("%X\n", 24908);
 	_printf("-> %X\n", 24908);
-	_printf("%z");
+	_printf("\n>PROBANDO CASOS SIN FORMATO COMO %z\n\n");
+	_printf("%z %w %j %");
 	_printf("-> %X\n", 24908);
+	_printf("\nPROBANDO %%S \n\n");
 	_printf(">%S\n", "Best\nSchool\n");
-	_printf(">sad%ztad\n");
+	_printf("\n>CASOS DE FORMATEO ADENTRO DE UN STRING");
+	_printf(">sad%ztad%s\n", "%sASD%%%sa%SDA%asd");
+	_printf("\n>PROBANDO CASOS DE COMPARACION DE LENGTH\n\n");
 	len = _printf(">Hello %\n", 24908);
 	len2 = printf("Hello %\n", 24908);	
-	_printf(">%d\n", len);
+	_printf(">%d\n", len - 1);
 	printf("%d\n", len2);
 	len = _printf(">asd% wsad\n");
 	len2 = printf("sad% wsad\n");
-	_printf(">%d\n", len);
+	_printf(">%d\n", len - 1);
 	printf("%d\n", len2);
+	_printf("\nCONSIDERAR RESTAR 1 PORQUE ESTAMOS SUMANDO EL > XD\n");
 	return (0);
 }
