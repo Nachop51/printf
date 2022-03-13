@@ -1,4 +1,4 @@
-#include "printf.h"
+#include "main.h"
 
 /**
  * print_percentage - prints out a percetange

@@ -1,6 +1,6 @@
 #include <limits.h>
 #include <stdio.h>
-#include "printf.h"
+#include "main.h"
 
 /**
  * main - Entry point
@@ -16,11 +16,9 @@ int main(void)
 	char *null = NULL;
 	int len;
 	int len2;
-
 	_printf(">TODO PRINTF QUE EMPIECE POR > ES TUYO");
 	len = _printf(">Let's try to printf a simple sentence.\n");
 	len2 = printf("Let's try to printf a simple sentence.\n");
-
 	printf("\n PRINTF TESTS \n\n");
 	printf("%u\n", 39265893);
 	printf("Length:[%d, %i]\n", len2, len2);
@@ -50,32 +48,22 @@ int main(void)
 	_printf(">%d\n", INT_MIN);
 	_printf(">%u\n", UINT_MAX);
 	_printf(">%%sadasd%%%s\n", str);
-
 	char *s;
 	char *s2;
 	char *s3;
 	char *s4;
 	char c;
 	int i;
-
 	c = 'p';
-
 	i = -123455;
-
 	s = "Lorem ipsum dolor sit amet, consectetur adipiscing elit\n";
-
 	s2 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n";
-
 	s3 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n";
-
 	s4 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n";
-
 	_printf("\n>MUCHOS CASOS JUNTOS\n");
 	_printf(">fasdf\n%% %z %s\n %c\n %s\n %s\n %s\n %i\n\n\n", s, c, s2, s3, s4, i);
-
 	unsigned int as;
 	int b;
-
 	as = -10;
 	_printf("\n>HANDLING DE CASOS RAROS\n\n");
 	b = _printf("%u\n", as);
