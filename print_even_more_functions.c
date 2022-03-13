@@ -3,7 +3,7 @@
 
 int print_pointer(va_list args)
 {
-	long int i;
+	long int i, j = 0;
 	void *p = va_arg(args, void*);
 
 	if (!p)
@@ -12,47 +12,40 @@ int print_pointer(va_list args)
 	i = (unsigned long int)p;
 	_stdout('0');
 	_stdout('x');
-	print_hexadecimal_aux(i);
-	return (0);
+	j += print_hexadecimal_aux(i);
+	return (j + 2);
 }
 
-int print_hexadecimal_aux(unsigned int n)
+int print_hexadecimal_aux(unsigned long int n)
 {
-	unsigned int i = 0, j = 0, a = n;
-	char *s;
+	long int i = 0, j = 0, *ar;
+	unsigned long int a = n;
 
 	if (!n)
 		return (-1);
-	while (a != 0)
+	while (a / 16 != 0)
 	{
 		a /= 16;
 		j++;
 	}
-	s = malloc(sizeof(char) * j + 1);
-	if (s == NULL)
+	j++;
+	ar = malloc(sizeof(long int) * j);
+	if (ar == NULL)
 		return (-1);
-
-	while (n > 0)
+	while (i < j)
 	{
-		if (n % 16 >= 10)
-		{
-			s[i] = ((n % 16) - 10) + 97;
-		}
-		else
-		{
-			s[i] = n % 16 + 48;
-		}
+		ar[i] = n % 16;
 		n /= 16;
 		i++;
 	}
-	s[i] = '\0';
-	j = 0;
-	while (i != 0)
+	i = j - 1;
+	while (i >= 0)
 	{
+		if (ar[i] > 9)
+			ar[i] += 39;
+		_stdout(ar[i] + '0');
 		i--;
-		_stdout(s[i]);
-		j++;
 	}
-	free(s);
+	free(ar);
 	return (j);
 }

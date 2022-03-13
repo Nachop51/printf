@@ -39,6 +39,6 @@ int print_rot13(va_list);
 int power(int, int);
 int print_heXadecimaln(unsigned int);
 
-int print_hexadecimal_aux(unsigned int);
+int print_hexadecimal_aux(unsigned long int);
 
 #endif
