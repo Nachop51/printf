@@ -75,12 +75,12 @@ int main(void)
 	_printf(">%i\n", b);
 	b = printf("%u\n", as);
 	printf(">%i\n", b);
-	_printf("%b\n", 15);
+	_printf("%b\n", UINT_MAX - 5); // es un numero par
 	_printf("%b\n", 52);
 	_printf("%b\n", 554);
 	_printf("%b\n", 5324);
-	printf("%o\n", 15);
-	_printf(">%o\n", 15);
+	printf("%o\n", UINT_MAX);
+	_printf(">%o\n", UINT_MAX);
 	printf("%o\n", 52);
 	_printf(">%o\n", 52);
 	printf("%o\n", 554);
@@ -107,6 +107,17 @@ int main(void)
 	_printf("-> %X\n", 64);
 	printf("%X\n", 24908);
 	_printf("-> %X\n", 24908);
-	printf("%r", "str");
+	_printf("%z");
+	_printf("-> %X\n", 24908);
+	_printf("%S\n", "Best\nSchool\n");
+	_printf("sad%ztad\n");
+	len = _printf("Hello %\n", 24908);
+	len2 = printf("Hello %\n", 24908);	
+	_printf("%d\n", len);
+	printf("%d\n", len2);
+	len = _printf("asd% wsad\n");
+	len2 = printf("sad% wsad\n");
+	_printf("%d\n", len);
+	printf("%d\n", len2);
 	return (0);
 }

@@ -23,6 +23,7 @@ int _stdout(char);
 int _printf(const char *format, ...);
 int print_aux(const char *format, print_f print[], va_list args);
 int print_string(va_list);
+int print_String(va_list);
 int print_int(va_list);
 int print_percentage(va_list);
 int print_unsigned_int(va_list);
@@ -34,5 +35,6 @@ int print_heXadecimal(va_list);
 int print_reversed(va_list);
 int print_rot13(va_list);
 int power(int, int);
+int print_heXadecimaln(int);
 
 #endif

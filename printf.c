@@ -20,6 +20,7 @@ int _printf(const char *format, ...)
 		{"x", print_hexadecimal},
 		{"X", print_heXadecimal},
 		{"r", print_reversed},
+		{"S", print_String},
 		{"R", print_rot13},
 		{"u", print_unsigned_int},
 		{NULL, NULL}

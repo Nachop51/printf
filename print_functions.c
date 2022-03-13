@@ -13,7 +13,7 @@ int print_string(va_list args)
 
 	str = va_arg(args, char *);
 	if (str == NULL)
-		str = "(null)";
+		return (-1);
 	while (str[i])
 	{
 		_stdout(str[i]);
@@ -33,6 +33,8 @@ int print_int(va_list args)
 	int count = 0, var = 1, n = va_arg(args, int), count_char = 0;
 	unsigned int out, test;
 
+	if (!n)
+		return (-1);
 	if (n < 0)
 	{
 		_stdout('-');
@@ -71,6 +73,8 @@ int print_unsigned_int(va_list args)
 	unsigned int count = 0, var = 1, n = va_arg(args, unsigned int);
 	unsigned int test = n, count_char = 0;
 
+	if (!n)
+		return (-1);
 	while (test != 0)
 	{
 		test /= 10;
@@ -97,7 +101,11 @@ int print_unsigned_int(va_list args)
  */
 int print_char(va_list args)
 {
-	_stdout(va_arg(args, int));
+	char c = va_arg(args, int);
+
+	if (!c)
+		return (-1);
+	_stdout(c);
 	return (1);
 }
 
