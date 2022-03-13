@@ -13,10 +13,18 @@ int main(void)
 	char *str = "\"sd";
 	char *str2 = "asdsa";
 	char a = 65;
-	char *null = NULL;
 	int len;
 	int len2;
-	_printf(">TODO PRINTF QUE EMPIECE POR > ES TUYO");
+	unsigned int as;
+	int b;
+	char *s;
+	char *s2;
+	char *s3;
+	char *s4;
+	char c;
+	int i;
+
+	_printf("\n>TODO PRINTF QUE EMPIECE POR > ES TUYO\n");
 	len = _printf(">Let's try to printf a simple sentence.\n");
 	len2 = printf("Let's try to printf a simple sentence.\n");
 	printf("\n PRINTF TESTS \n\n");
@@ -48,12 +56,6 @@ int main(void)
 	_printf(">%d\n", INT_MIN);
 	_printf(">%u\n", UINT_MAX);
 	_printf(">%%sadasd%%%s\n", str);
-	char *s;
-	char *s2;
-	char *s3;
-	char *s4;
-	char c;
-	int i;
 	c = 'p';
 	i = -123455;
 	s = "Lorem ipsum dolor sit amet, consectetur adipiscing elit\n";
@@ -62,17 +64,15 @@ int main(void)
 	s4 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n";
 	_printf("\n>MUCHOS CASOS JUNTOS\n");
 	_printf(">fasdf\n%% %z %s\n %c\n %s\n %s\n %s\n %i\n\n\n", s, c, s2, s3, s4, i);
-	unsigned int as;
-	int b;
 	as = -10;
 	_printf("\n>HANDLING DE CASOS RAROS\n\n");
 	b = _printf("%u\n", as);
 	_printf(">%i\n", b);
 	_printf(">PRINTF NORMAL\n");
 	b = printf("%u\n", as);
-	printf(">%i\n", b);
+	printf("%i\n", b);
 	_printf("\n>CASOS DE NUMEROS BINARIOS\nsi tiene > es tu printf\n");
-	_printf(">%b\n", UINT_MAX - 5); // es un numero par
+	_printf(">%b\n", UINT_MAX - 5); /* es un numero par */
 	_printf(">%b\n", 52);
 	_printf(">%b\n", 554);
 	_printf(">%b\n", 5324);
@@ -110,12 +110,13 @@ int main(void)
 	printf("%X\n", 24908);
 	_printf("-> %X\n", 24908);
 	_printf("\n>PROBANDO CASOS SIN FORMATO COMO %z\n\n");
-	_printf("%z %w %j %");
+	_printf("%z %w %j %\n");
 	_printf("-> %X\n", 24908);
 	_printf("\nPROBANDO %%S \n\n");
-	_printf(">%S\n", "Best\nSchool\n");
-	_printf("\n>CASOS DE FORMATEO ADENTRO DE UN STRING");
-	_printf(">sad%ztad%s\n", "%sASD%%%sa%SDA%asd");
+	_printf("%S\n", "Best\nSchool");
+	_printf("\n>CASOS DE FORMATEO ADENTRO DE UN STRING\n");
+	_printf(">sad%ztad%s\n", "%sASD% %%sa%SDA%asd");
+	printf("sad%ztad%s\n", "%sASD% %%sa%SDA%asd");
 	_printf("\n>PROBANDO CASOS DE COMPARACION DE LENGTH\n\n");
 	len = _printf(">Hello %\n", 24908);
 	len2 = printf("Hello %\n", 24908);	
@@ -125,6 +126,15 @@ int main(void)
 	len2 = printf("sad% wsad\n");
 	_printf(">%d\n", len - 1);
 	printf("%d\n", len2);
-	_printf("\nCONSIDERAR RESTAR 1 PORQUE ESTAMOS SUMANDO EL > XD\n");
+	_printf("\n>CONSIDERAR RESTAR 1 PORQUE ESTAMOS SUMANDO EL > XD\n");
+	printf("%p\n", &len);
+	printf("%x\n", &len);
+	_printf("%x\n", &str);
+	printf("%p\n", &str);
+	_printf("%p\n", &str);
+	len2 = printf("%z%z\n");
+	len = _printf("%z%z\n");
+	_printf("%d, %d\n", len, len2);
+	_printf("%b\n", 90);
 	return (0);
 }

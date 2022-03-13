@@ -103,7 +103,7 @@ int print_octal(va_list args)
 int print_hexadecimal(va_list args)
 {
 	unsigned int n = va_arg(args, unsigned int), i = 0, j = 0, a = n;
-	char *s, temp;
+	char *s;
 
 	if (!n)
 		return (-1);
@@ -150,7 +150,7 @@ int print_hexadecimal(va_list args)
 int print_heXadecimal(va_list args)
 {
 	unsigned int n = va_arg(args, unsigned int), i = 0, j = 0, a = n;
-	char *s, temp;
+	char *s;
 
 	if (!n)
 		return (-1);

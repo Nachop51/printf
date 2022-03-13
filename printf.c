@@ -21,11 +21,12 @@ int _printf(const char *format, ...)
 		{"X", print_heXadecimal},
 		{"r", print_reversed},
 		{"S", print_String},
+		{"p", print_pointer},
 		{"R", print_rot13},
 		{"u", print_unsigned_int},
 		{NULL, NULL}
 	};
-	int i = 0, j = 0, count = 0;
+	int count = 0;
 	va_list args;
 
 	if (format == NULL)

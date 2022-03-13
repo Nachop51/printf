@@ -60,7 +60,7 @@ int print_aux(const char *format, print_f print[], va_list args)
  */
 int print_rot13(va_list args)
 {
-	int i = 0, j = 0;
+	int i = 0, j = 0, count = 0;
 	char target[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char replace[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 	char *s = va_arg(args, char *);
@@ -75,12 +75,14 @@ int print_rot13(va_list args)
 			if (target[j] == s[i])
 			{
 				_stdout(replace[j]);
+				count++;
 				break;
 			}
 			j++;
 		}
 		i++;
 	}
+	return (count);
 }
 
 /**
@@ -91,7 +93,7 @@ int print_rot13(va_list args)
  */
 int print_reversed(va_list args)
 {
-	int i;
+	int i = 0, j = 0;
 	char *s = va_arg(args, char *);
 
 	if (s == NULL)
@@ -100,7 +102,8 @@ int print_reversed(va_list args)
 		i++;
 
 	while (i--)
-		_stdout(s[i]);
+		j++, _stdout(s[i]);
+	return (j);
 }
 
 /**
@@ -119,7 +122,7 @@ int print_String(va_list args)
 		return (-1);
 	while (str[i])
 	{
-		if (str[i] > 32 && str[i] <= 127)
+		if (str[i] > 32)
 		{
 			_stdout(str[i]);
 		}
@@ -141,41 +144,20 @@ int print_String(va_list args)
  *
  * Return: amount of chars printed
  */
-int print_heXadecimaln(int n)
+int print_heXadecimaln(unsigned int n)
 {
-	unsigned int i = 0, j = 0, a = n;
-	char *s, temp;
+	int i = 0;
+	char *s;
 
-	if (!n)
-		return (-1);
-	while (a != 0)
-	{
-		a /= 16;
-		j++;
-	}
-	s = malloc(sizeof(char) * j + 1);
-	if (s == NULL)
+	s = malloc(sizeof(char) * 3);
+	if (!s)
 		return (-1);
 
-	while (n > 0)
-	{
-		if (n % 16 >= 10)
-		{
-			s[i] = ((n % 16) - 10) + 65;
-		}
-		else
-			s[i] = n % 16 + 48;
-		n /= 16;
-		i++;
-	}
-	s[i] = '\0';
-	j = 0;
-	while (i != 0)
-	{
-		i--;
-		_stdout(s[i]);
-		j++;
-	}
-	free(s);
-	return (j);
+	s[0] = n / 10;
+	s[1] = n % 10;
+	s[2] = '\0';
+
+	while (s[i])
+		_stdout(s[i] + 48), i++;
+	return (2);
 }
