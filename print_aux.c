@@ -114,7 +114,7 @@ int print_reversed(va_list args)
  */
 int print_String(va_list args)
 {
-	int i = 0;
+	int i = 0, j = 0;
 	char *str;
 
 	str = va_arg(args, char *);
@@ -122,16 +122,16 @@ int print_String(va_list args)
 		return (-1);
 	while (str[i])
 	{
-		if (str[i] > 32)
-		{
-			_stdout(str[i]);
-		}
+		if (str[i] > 32 && str[i] <= 127)
+			j++, _stdout(str[i]);
 		else
 		{
 			_stdout('\\');
 			_stdout('x');
-			i += 2;
-			i += print_heXadecimaln(str[i]);
+			j += 2;
+			if (str[i] - 48 < 16)
+				j++, _stdout('0');
+			j += print_heXadecimaln(str[i]);
 		}
 		i++;
 	}
@@ -140,24 +140,45 @@ int print_String(va_list args)
 
 /**
  * print_heXadecimaln - converts a number into hexadecimal with upper letters
- * @n: takes an n 
+ * @n: takes an integer instead of a list
  *
  * Return: amount of chars printed
  */
 int print_heXadecimaln(unsigned int n)
 {
-	int i = 0;
+	unsigned int i = 0, j = 0, a = n;
 	char *s;
 
-	s = malloc(sizeof(char) * 3);
-	if (!s)
+	if (!n)
+		return (-1);
+	while (a != 0)
+	{
+		a /= 16;
+		j++;
+	}
+	s = malloc(sizeof(char) * j + 1);
+	if (s == NULL)
 		return (-1);
 
-	s[0] = n / 10;
-	s[1] = n % 10;
-	s[2] = '\0';
-
-	while (s[i])
-		_stdout(s[i] + 48), i++;
-	return (2);
+	while (n > 0)
+	{
+		if (n % 16 >= 10)
+		{
+			s[i] = ((n % 16) - 10) + 65;
+		}
+		else
+			s[i] = n % 16 + 48;
+		n /= 16;
+		i++;
+	}
+	s[i] = '\0';
+	j = 0;
+	while (i != 0)
+	{
+		i--;
+		_stdout(s[i]);
+		j++;
+	}
+	free(s);
+	return (j);
 }

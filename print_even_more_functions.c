@@ -1,6 +1,12 @@
 #include "main.h"
 #include <stdint.h>
 
+/**
+ * print_pointer - prints out the address of a pointer in memory
+ * @args: list of arguments
+ *
+ * Return: amount of chars printed
+ */
 int print_pointer(va_list args)
 {
 	long int i, j = 0;
@@ -16,6 +22,12 @@ int print_pointer(va_list args)
 	return (j + 2);
 }
 
+/**
+ * print_hexadecimal_aux - auxiliar function to print a pointer
+ * @n: the address of the pointer
+ *
+ * Return: amount of chars printed
+ */
 int print_hexadecimal_aux(unsigned long int n)
 {
 	long int i = 0, j = 0, *ar;
