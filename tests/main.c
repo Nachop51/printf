@@ -91,8 +91,8 @@ int main(void)
 	_printf(">PROBANDO ROT13 Y REVERSED STRING\n\n");
 	_printf(">%R\n", "Hola");
 	_printf(">%R\n", "Ubyn");
-	len = _printf(">%R\n", NULL);
-	_printf(">%d\n", len - 1);
+	/*len = _printf(">%R\n", NULL);
+	_printf(">%d\n", len - 1);*/
 	_printf(">%r\n", "Hola");
 	_printf("\n>PROBANDO HEXADECIMAL\n");
 	printf("%x\n", UINT_MAX);
