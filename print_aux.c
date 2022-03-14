@@ -66,7 +66,15 @@ int print_rot13(va_list args)
 	char *s = va_arg(args, char *);
 
 	if (s == NULL)
+	{
 		s = "(null)";
+		while (s[i])
+		{
+			_stdout(s[i]);
+			i++;
+			return (i);
+		}
+	}
 	while (s[i])
 	{
 		j = 0;
