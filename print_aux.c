@@ -122,7 +122,7 @@ int print_String(va_list args)
 
 	str = va_arg(args, char *);
 	if (str == NULL)
-		return (-1);
+		str = "(null)";
 	while (str[i])
 	{
 		if (str[i] > 32 && str[i] < 126)
