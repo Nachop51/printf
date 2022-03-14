@@ -9,13 +9,17 @@
  */
 int print_pointer(va_list args)
 {
-	long int i, j = 0;
+	long int i = 0, j = 0;
+	char *str = "(nil)";
 	void *p = va_arg(args, void*);
 
 	if (!p)
 	{
-		_stdout('0');
-		return (1);
+		while (str[i])
+		{
+			_stdout(str[i]);
+		}
+		return (i);
 	}
 	i = (unsigned long int)p;
 	_stdout('0');
