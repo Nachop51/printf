@@ -50,7 +50,7 @@ int print_binary(va_list args)
 		j++;
 	}
 	free(s);
-	return (j);
+	return (j + 1);
 }
 
 /**

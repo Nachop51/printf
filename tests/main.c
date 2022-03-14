@@ -73,7 +73,8 @@ int main(void)
 	printf("%i\n", b);
 	_printf("\n>CASOS DE NUMEROS BINARIOS\nsi tiene > es tu printf\n");
 	_printf(">%b\n", UINT_MAX - 5); /* es un numero par */
-	_printf(">%b\n", 52);
+	len = _printf(">%b\n", 52);
+	_printf("%d\n", len);
 	_printf(">%b\n", 554);
 	_printf(">%b\n", 5324);
 	_printf("\n>CASOS DE NUMEROS OCTALES\nsi tiene > es tu printf\n");
