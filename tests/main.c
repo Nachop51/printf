@@ -158,7 +158,10 @@ int main(void)
 	len2 = -555;
 	printf("%+5d\n", len2);
 	printf("%#d\n", len2);
-	_printf("%s\n", '\0');
-	printf("%s\n", '\0');
+	len = _printf(">%s\n", '\0');
+	len2 = printf("%s\n", '\0');
+	_printf(">%d, %d\n", len - 1, len2);
+	_printf(">NO VARIABLE _PRINTF: %s\n");
+	printf("NO VARIABLE PRINTF: %s\n");
 	return (0);
 }
