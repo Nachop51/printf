@@ -60,33 +60,28 @@ int print_aux(const char *format, print_f print[], va_list args)
  */
 int print_rot13(va_list args)
 {
-	int i = 0, j = 0, count = 0;
-	char target[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char replace[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	int i = 0, count = 0;
 	char *s = va_arg(args, char *);
 
-	if (!s)
-	{
-		s = "(null)";
-		while (s[i])
-		{
-			_stdout(s[i]);
-			i++;
-		}
-		return (i);
-	}
 	while (s[i])
 	{
-		j = 0;
-		while (target[j])
+		if ((s[i] >= 65 && s[i] <= 90) || (s[i] >= 97 && s[i] <= 122))
 		{
-			if (target[j] == s[i])
+			if ((s[i] >= 'a' && s[i] <= 'm') || (s[i] >= 'A' && s[i] <= 'M'))
 			{
-				_stdout(replace[j]);
+				_stdout(s[i] + 13);
 				count++;
-				break;
 			}
-			j++;
+			else
+			{
+				_stdout(s[i] - 13);
+				count++;
+			}
+		}
+		else
+		{
+			_stdout(s[i]);
+			count++;
 		}
 		i++;
 	}
