@@ -122,7 +122,7 @@ int print_String(va_list args)
 		return (-1);
 	while (str[i])
 	{
-		if (str[i] > 32 && str[i] <= 127)
+		if (str[i] > 32)
 			j++, _stdout(str[i]);
 		else
 		{
