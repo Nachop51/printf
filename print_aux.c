@@ -65,7 +65,7 @@ int print_rot13(va_list args)
 	char replace[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 	char *s = va_arg(args, char *);
 
-	if (s == NULL)
+	if (!s)
 	{
 		s = "(null)";
 		while (s[i])
