@@ -158,15 +158,15 @@ int print_heXadecimaln(unsigned int n)
 		j++;
 	}
 	s = malloc(sizeof(char) * j + 1);
-	if (s == NULL)
-		return (-1);
-
+	if (!n)
+	{
+		_stdout('0');
+		return (1);
+	}
 	while (n > 0)
 	{
 		if (n % 16 >= 10)
-		{
 			s[i] = ((n % 16) - 10) + 65;
-		}
 		else
 			s[i] = n % 16 + 48;
 		n /= 16;
