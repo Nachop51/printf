@@ -149,8 +149,6 @@ int print_heXadecimaln(unsigned int n)
 	unsigned int i = 0, j = 0, a = n;
 	char *s;
 
-	if (!n)
-		return (-1);
 	while (a != 0)
 	{
 		a /= 16;

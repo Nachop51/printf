@@ -30,9 +30,7 @@ int print_hexadecimal_aux(unsigned long int n)
 {
 	long int i = 0, j = 0, *ar;
 	unsigned long int a = n;
-
-	if (!n)
-		return (-1);
+	
 	while (a / 16 != 0)
 	{
 		a /= 16;
