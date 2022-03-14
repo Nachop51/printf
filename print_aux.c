@@ -122,6 +122,8 @@ int print_String(va_list args)
 	char *str;
 
 	str = va_arg(args, char *);
+	if (str == NULL)
+		str = "(nil)";
 	for (i = 0; str[i]; i++)
 	{
 		if (str[i] < 32 || str[i] >= 127)
