@@ -114,9 +114,8 @@ int main(void)
 	_printf("-> %X\n", 24908);
 	_printf("\n>PROBANDO CASOS SIN FORMATO COMO %z\n\n");
 	_printf(">%z %w %j %\n");
-	_printf("-> %X\n", 24908);
 	_printf("\nPROBANDO %%S\n\n");
-	_printf("%S\n", "\bBest\nSchoo\tl");
+	_printf("%S\n", "\24Best\nSchoo\tl");
 	_printf("%S\n", "Be\nst\tSch\bool");
 	_printf("%S\n", "B\test\bScho\nol");
 	_printf("\n>CASOS DE FORMATEO ADENTRO DE UN STRING\n\n");

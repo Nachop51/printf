@@ -117,7 +117,7 @@ int print_reversed(va_list args)
  */
 int print_String(va_list args)
 {
-	int i = 0, j = 0;
+	int i = 0, j = 0, temp;
 	char *str;
 
 	str = va_arg(args, char *);
@@ -125,14 +125,15 @@ int print_String(va_list args)
 		return (-1);
 	while (str[i])
 	{
-		if (str[i] > 32 || str[i] < 126)
+		if (str[i] > 32 && str[i] < 126)
 			j++, _stdout(str[i]);
 		else
 		{
 			_stdout('\\');
 			_stdout('x');
 			j += 2;
-			if (str[i] - 48 < 16)
+			temp = str[i];
+			if (temp < 16)
 				j++, _stdout('0');
 			j += print_heXadecimaln(str[i]);
 		}
