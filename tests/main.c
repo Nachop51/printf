@@ -137,13 +137,13 @@ int main(void)
 	len = _printf(">%p\n", &len);
 	_printf(">%d, %d\n", len - 1, len2);
 	len2 = printf("%x\n", &len);
-	len = _printf(">%x\n", &str);
+	len = _printf(">%x\n", &len);
 	_printf(">%d, %d\n", len - 1, len2);
 	len2 = printf("%X\n", &len);
-	len = _printf(">%X\n", &str);
+	len = _printf(">%X\n", &len);
 	_printf(">%d, %d\n", len - 1, len2);
-	len2 = printf("%p\n", &str);
-	len = _printf(">%p\n", &str);
+	len2 = printf("%p\n", &len);
+	len = _printf(">%p\n", &len);
 	_printf(">%d, %d\n", len - 1, len2);
 	printf("%p\n", NULL);
 	_printf("%p\n", NULL);
