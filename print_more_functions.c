@@ -69,6 +69,11 @@ int print_octal(va_list args)
 	unsigned int n = va_arg(args, unsigned int), i = 0, j = 0, a = n;
 	char *s;
 
+	if (!n)
+	{
+		_stdout('0');
+		return (1);
+	}
 	while (a != 0)
 	{
 		a /= 8;
@@ -106,6 +111,11 @@ int print_hexadecimal(va_list args)
 	unsigned int n = va_arg(args, unsigned int), i = 0, j = 0, a = n;
 	char *s;
 
+	if (!n)
+	{
+		_stdout('0');
+		return (1);
+	}
 	while (a != 0)
 	{
 		a /= 16;
@@ -151,6 +161,11 @@ int print_heXadecimal(va_list args)
 	unsigned int n = va_arg(args, unsigned int), i = 0, j = 0, a = n;
 	char *s;
 
+	if (!n)
+	{
+		_stdout('0');
+		return (1);
+	}
 	while (a != 0)
 	{
 		a /= 16;

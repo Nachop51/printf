@@ -12,7 +12,11 @@ int print_pointer(va_list args)
 	long int i, j = 0;
 	void *p = va_arg(args, void*);
 
-
+	if (!p)
+	{
+		_stdout('0');
+		return (1);
+	}
 	i = (unsigned long int)p;
 	_stdout('0');
 	_stdout('x');
@@ -30,7 +34,12 @@ int print_hexadecimal_aux(unsigned long int n)
 {
 	long int i = 0, j = 0, *ar;
 	unsigned long int a = n;
-	
+
+	if (!n)
+	{
+		_stdout('0');
+		return (1);
+	}
 	while (a / 16 != 0)
 	{
 		a /= 16;
