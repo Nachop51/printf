@@ -124,9 +124,7 @@ int print_String(va_list args)
 	str = va_arg(args, char *);
 	while (str[i])
 	{
-		if (str[i] > 32 && str[i] < 126)
-			j++, _stdout(str[i]);
-		else
+		if (str[i] < 32 || str[i] >= 127)
 		{
 			_stdout('\\');
 			_stdout('x');
@@ -136,6 +134,8 @@ int print_String(va_list args)
 				j++, _stdout('0');
 			j += print_heXadecimaln(str[i]);
 		}
+		else
+			j++, _stdout(str[i]);
 		i++;
 	}
 	return (i);
