@@ -158,5 +158,7 @@ int main(void)
 	len2 = -555;
 	printf("%+5d\n", len2);
 	printf("%#d\n", len2);
+	_printf("%s\n", '\0');
+	printf("%s\n", '\0');
 	return (0);
 }
