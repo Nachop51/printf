@@ -174,6 +174,7 @@ int print_heXadecimaln(unsigned int n)
 		if (i == 1)
 		{
 			_stdout('0');
+			j++;
 		}
 		i--;
 		_stdout(s[i]);
