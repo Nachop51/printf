@@ -33,8 +33,6 @@ int print_int(va_list args)
 	int count = 0, var = 1, n = va_arg(args, int), count_char = 0;
 	unsigned int out, test;
 
-	if (!n)
-		return (-1);
 	if (n < 0)
 	{
 		_stdout('-');
