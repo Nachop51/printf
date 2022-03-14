@@ -66,7 +66,9 @@ int print_rot13(va_list args)
 	char *s = va_arg(args, char *);
 
 	if (s == NULL)
-		return (-1);
+	{
+		s = "(null)";
+	}
 	while (s[i])
 	{
 		j = 0;
@@ -122,7 +124,7 @@ int print_String(va_list args)
 		return (-1);
 	while (str[i])
 	{
-		if (str[i] > 32)
+		if (str[i] > 32 || str[i] <= 127)
 			j++, _stdout(str[i]);
 		else
 		{
