@@ -115,6 +115,7 @@ int main(void)
 	_printf("\n>PROBANDO CASOS SIN FORMATO COMO %z\n\n");
 	_printf(">%z %w %j %\n");
 	_printf("\nPROBANDO %%S\n\n");
+	_printf("%S\n", "Best\nSchool");
 	_printf("%S\n", "\nBest\nSchoo\tl");
 	_printf("%S\n", "Be\nst\tSch\bool");
 	_printf("%S\n", "B\test\bScho\nol");
@@ -149,6 +150,13 @@ int main(void)
 	len2 = printf("%z%z\n");
 	len = _printf(">%z%z\n");
 	_printf(">%d, %d\n", len - 1, len2);
-	_printf(">%b\n", 90);
+	len = -100;
+	len2 = printf("% d\n", len);
+	len = 100;
+	len2 = printf("% d\n", len);
+	_printf("%d\n", len2);
+	len2 = -555;
+	printf("%+5d\n", len2);
+	printf("%#d\n", len2);
 	return (0);
 }

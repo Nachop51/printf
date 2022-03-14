@@ -118,27 +118,23 @@ int print_reversed(va_list args)
  */
 int print_String(va_list args)
 {
-	int i = 0, j = 0, temp;
+	int i = 0, j = 0;
 	char *str;
 
 	str = va_arg(args, char *);
-	while (str[i])
+	for (i = 0; str[i]; i++)
 	{
 		if (str[i] < 32 || str[i] >= 127)
 		{
 			_stdout('\\');
 			_stdout('x');
 			j += 2;
-			temp = str[i];
-			if (temp < 16)
-				j++, _stdout('0');
 			j += print_heXadecimaln(str[i]);
 		}
 		else
 			j++, _stdout(str[i]);
-		i++;
 	}
-	return (i);
+	return (j);
 }
 
 /**
@@ -153,10 +149,7 @@ int print_heXadecimaln(unsigned int n)
 	char *s;
 
 	while (a != 0)
-	{
-		a /= 16;
-		j++;
-	}
+		j++, a /= 16;
 	s = malloc(sizeof(char) * j + 1);
 	if (!n)
 	{
@@ -168,7 +161,9 @@ int print_heXadecimaln(unsigned int n)
 		if (n % 16 >= 10)
 			s[i] = ((n % 16) - 10) + 65;
 		else
+		{
 			s[i] = n % 16 + 48;
+		}
 		n /= 16;
 		i++;
 	}
@@ -176,6 +171,10 @@ int print_heXadecimaln(unsigned int n)
 	j = 0;
 	while (i != 0)
 	{
+		if (i == 1)
+		{
+			_stdout('0');
+		}
 		i--;
 		_stdout(s[i]);
 		j++;

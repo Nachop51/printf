@@ -5,7 +5,7 @@ printf \- prints out all what you want to format
 .SH SYNOPSIS
 _printf [USERNAME]
 .SH DESCRIPTION
-_printf is function that takes a format and can take n parameters, the function format those parameters, and prints them all
+_printf is a function that takes a format and can take n parameters, in order to format those parameters, and sends them all formatted output to stdout.
 .SH OPTIONS
 The _printf can take 0 or n values.
 .SH SEE ALSO
