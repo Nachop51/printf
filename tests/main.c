@@ -145,6 +145,8 @@ int main(void)
 	len2 = printf("%p\n", &str);
 	len = _printf(">%p\n", &str);
 	_printf(">%d, %d\n", len - 1, len2);
+	printf("%p\n", NULL);
+	_printf("%p\n", NULL);
 	len2 = printf("%z%z\n");
 	len = _printf(">%z%z\n");
 	_printf(">%d, %d\n", len - 1, len2);
