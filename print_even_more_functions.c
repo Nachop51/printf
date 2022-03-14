@@ -10,7 +10,7 @@
 int print_pointer(va_list args)
 {
 	long int i = 0, j = 0;
-	char *str = "(nil)";
+	char *str = "(null)";
 	void *p = va_arg(args, void*);
 
 	if (!p)
