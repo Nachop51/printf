@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdint.h>
 
 /**
  * print_pointer - prints out the address of a pointer in memory
