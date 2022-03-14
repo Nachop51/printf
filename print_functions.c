@@ -71,8 +71,6 @@ int print_unsigned_int(va_list args)
 	unsigned int count = 0, var = 1, n = va_arg(args, unsigned int);
 	unsigned int test = n, count_char = 0;
 
-	if (!n)
-		return (-1);
 	while (test != 0)
 	{
 		test /= 10;
