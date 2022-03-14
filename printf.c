@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 	int count = 0;
 	va_list args;
 
-	if (format == NULL)
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 	{
 		return (-1);
 	}
