@@ -124,7 +124,7 @@ int print_String(va_list args)
 	if (str == NULL)
 	{
 		i = _printf("(null)");
-		return (i);
+		return (6);
 	}
 	for (i = 0; str[i]; i++)
 	{
