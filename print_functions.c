@@ -8,12 +8,14 @@
  */
 int print_string(va_list args)
 {
-	unsigned int i = 0;
 	char *str;
+	unsigned int i = 0;
 
 	str = va_arg(args, char *);
 	if (str == NULL)
+	{
 		str = "(null)";
+	}
 	while (str[i] != '\0')
 	{
 		_stdout(str[i]);
