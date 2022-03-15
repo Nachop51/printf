@@ -121,12 +121,11 @@ int print_String(va_list args)
 	char *str;
 
 	str = va_arg(args, char *);
-	if (!str)
+	if (str == NULL)
 	{
 		while (str[i])
 		{
-			str = "(null)";
-			i++;
+			i = _printf("(null)");
 		}
 		return (i);
 	}
