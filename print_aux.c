@@ -29,8 +29,7 @@ int print_aux(const char *format, print_f print[], va_list args)
 				{
 					if (format[i + 1] >= 48 && format[i + 1] <= 122)
 					{
-						_stdout(format[i]);
-						count++;
+						count++, _stdout(format[i]);
 						break;
 					}
 					else
