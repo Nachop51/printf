@@ -166,5 +166,7 @@ int main(void)
 	_printf("%S\n", "The value of \\n is \n");
 	_printf("%S\n");
 	_printf("%S\n", '\0');
+	len = _printf("%S\n", " ");
+	_printf("%d\n", len);
 	return (0);
 }
