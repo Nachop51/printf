@@ -123,10 +123,7 @@ int print_String(va_list args)
 	str = va_arg(args, char *);
 	if (str == NULL)
 	{
-		while (str[i])
-		{
-			i = _printf("(null)");
-		}
+		i = _printf("(null)");
 		return (i);
 	}
 	for (i = 0; str[i]; i++)
