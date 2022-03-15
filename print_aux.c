@@ -132,11 +132,16 @@ int print_String(va_list args)
 		{
 			_stdout('\\');
 			_stdout('x');
+			if (str[i] < 16)
+				_stdout('0');
 			print_heXadecimaln(str[i]);
 			j += 4;
 		}
 		else
-			j++, _stdout(str[i]);
+		{
+			_stdout(str[i]);
+			j++;
+		}
 	}
 	return (j);
 }
@@ -175,11 +180,6 @@ int print_heXadecimaln(unsigned int n)
 	j = 0;
 	while (i != 0)
 	{
-		if (i == 1)
-		{
-			_stdout('0');
-			j++;
-		}
 		i--;
 		_stdout(s[i]);
 		j++;
