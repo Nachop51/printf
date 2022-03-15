@@ -132,8 +132,8 @@ int print_String(va_list args)
 		{
 			_stdout('\\');
 			_stdout('x');
-			j += 2;
-			j += print_heXadecimaln(str[i]);
+			print_heXadecimaln(str[i]);
+			j += 4;
 		}
 		else
 			j++, _stdout(str[i]);
