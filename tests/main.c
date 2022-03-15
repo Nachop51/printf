@@ -163,5 +163,6 @@ int main(void)
 	_printf(">%d, %d\n", len - 1, len2);
 	_printf(">NO VARIABLE _PRINTF: %s\n");
 	printf("NO VARIABLE PRINTF: %s\n");
+	_printf("%S\n", "The value of \\n is \n");
 	return (0);
 }
