@@ -128,12 +128,16 @@ int print_String(va_list args)
 	}
 	for (i = 0; str[i]; i++)
 	{
-		if (str[i] < 32 || str[i] >= 127)
+		if ((str[i] > 0 && str[i] < 32) || str[i] >= 127)
 		{
 			_stdout('\\');
 			_stdout('x');
 			j += 2;
 			j += print_heXadecimaln(str[i]);
+		}
+		else if (str[i] == 0)
+		{
+			_printf("\x00");
 		}
 		else
 			j++, _stdout(str[i]);

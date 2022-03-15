@@ -165,5 +165,6 @@ int main(void)
 	printf("NO VARIABLE PRINTF: %s\n");
 	_printf("%S\n", "The value of \\n is \n");
 	_printf("%S\n");
+	_printf("%S\n", '\0');
 	return (0);
 }
