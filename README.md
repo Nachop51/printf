@@ -41,11 +41,11 @@ parameters in a specific way it is necessary to specify it in the format(with % 
 
 ##### Example:
 
-&emsp; \_printf("My number favourite is: %d", 15);
+&emsp; \_printf("My favourite number is: %d", 15);
 
 ##### Expected output:
 
-&emsp; My number favourite is: 15
+&emsp; My favourite number is: 15
 
 &emsp; **u, o, x, X** &emsp;Converts the argument to an unsigned base
 
@@ -58,7 +58,7 @@ parameters in a specific way it is necessary to specify it in the format(with % 
 
 ##### Expected output:
 
-&emsp; My number favourite is: 15 \
+&emsp; Today is: 15 \
 &emsp; 10 in octal is: 12 \
 &emsp; Lowercase hexadecimal: 1d \
 &emsp; Uppercase hexadecimal: 1D
@@ -67,7 +67,7 @@ parameters in a specific way it is necessary to specify it in the format(with % 
 
 ##### Example:
 
-&emsp; \_printf("20 in binary is: %b", 15);
+&emsp; \_printf("20 in binary is: %b", 20);
 
 ##### Expected output:
 
