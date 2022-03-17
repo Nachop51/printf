@@ -124,7 +124,7 @@ int main(void)
 	printf("sad%ztad%s\n", "%sASD% %%sa%SDA%asd");
 	_printf("\n>PROBANDO CASOS DE COMPARACION DE LENGTH\n\n");
 	len = _printf(">Hello %\n", 24908);
-	len2 = printf("Hello %\n", 24908);	
+	len2 = printf("Hello %\n", 24908);
 	_printf(">%d\n", len - 1);
 	printf("%d\n", len2);
 	len = _printf(">asd% wsad\n");
@@ -168,5 +168,7 @@ int main(void)
 	_printf("%S\n", '\0');
 	len = _printf("%S", "\n");
 	_printf("\n%d\n", len);
+	len = _printf("");
+	_printf("len: %d\n", len);
 	return (0);
 }
