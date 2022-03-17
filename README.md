@@ -143,3 +143,7 @@ parameters in a specific way it is necessary to specify it in the format(with % 
 Output: Hello\
 &emsp; \_printf("rvalue is: %d", rvalue);\
 Output: rvalue is: 4
+
+## Flowchart
+
+![App Screenshot](https://i.postimg.cc/KvVjgKvs/Flowchart-about-printf.png)
