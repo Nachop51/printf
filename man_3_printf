@@ -1,0 +1,60 @@
+.TH PRINTF 3 "April 2023" "C Holberton project"
+
+.SH NAME
+_printf \- print formatted output
+
+.SH SYNOPSIS
+.B #include "main.h"
+.br
+.B int _printf(const char *format, ...);
+
+.SH DESCRIPTION
+The \fB_printf()\fR function formats and prints the specified output according to the format string \fIformat\fR.
+
+The format string may contain conversion specifiers that begin with the % character, followed by optional flags, width, precision, and length modifiers, and a conversion character that specifies the type of argument to be formatted and printed.
+
+The format string may also contain regular characters, which are copied to the output stream as-is.
+
+.SH RETURN VALUE
+The \fB_printf()\fR function returns the number of characters printed on success, or a negative value on error.
+
+.SH EXAMPLES
+To print an integer:
+
+.nf
+int num = 42;
+_printf("The answer is %d\n", num);
+.fi
+
+To print a string:
+
+.nf
+_printf("Hello, %s!\n", "world");
+.fi
+
+To print a floating-point number:
+
+.nf
+double num = 3.14159;
+_printf("The value of pi is %.2f\n", num);
+.fi
+
+To print a character:
+
+.nf
+char ch = 'A';
+_printf("The first letter is %c\n", ch);
+.fi
+
+To print in hexadecimal format:
+
+.nf
+int num = 255;
+_printf("The value in hex is %x\n", num);
+.fi
+
+.SH FILES
+/your_directory/printf/main.h - header file for _printf()
+
+.SH AUTHORS
+This man page was written by Ignacio Peralta for the C Low level Holberton project.
