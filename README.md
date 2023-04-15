@@ -1,149 +1,62 @@
-# \_printf -- Readme page
+# Printf Function in C
 
-### NAME
+The `printf()` function in C is a powerful tool for formatting and printing data to the console or other output devices. It is part of the standard input-output library `stdio.h` and has a simple and intuitive syntax that allows for a wide range of formatting options.
 
-&emsp;\_printf()
+## Syntax
 
-### SYNOPSIS
+The basic syntax of `printf()` is:
 
-&emsp;#include <main.h>
+```
+printf(format_string, argument_list);
+```
 
-&emsp;**int printf(const char \*_format_, ...);**
+Here, `format_string` is a string that specifies the format of the output, and `argument_list` is a list of variables or expressions that are to be printed according to that format. The format string contains ordinary characters (which are printed as-is), along with format specifiers that start with the `%` character and specify how each argument should be printed.
 
-### DESCRIPTION
+For example, the following code prints the message "Hello, world!" to the console:
 
-&emsp;The \_printf is a function that takes a format and can take n parameters. In order to display those
-parameters in a specific way it is necessary to specify it in the format(with % and a valid conversion). Then sends the formatted output to the standard output.
+```c
+#include <stdio.h>
 
-#### Usage example
+int main() {
+    printf("Hello, world!");
+    return 0;
+}
+```
 
-&emsp;\_printf("Hello %s", "world!");
+## Format Specifiers
 
-&emsp; Output: Hello world!
+The most common format specifiers are:
 
-##### Could also take no parameters:
+- `%d`: prints an integer value.
+- `%f`: prints a floating-point value.
+- `%s`: prints a string.
+- `%c`: prints a character.
+- `%p`: prints a pointer address.
 
-&emsp;\_printf("Hello World!");
+There are many other format specifiers as well, including ones for printing hexadecimal values, scientific notation, and more. You can also specify additional formatting options, such as field width, precision, and alignment.
 
-&emsp; Output: Hello world!
+Here are some examples:
 
-##### Could also take more than one parameter:
+```c
+#include <stdio.h>
 
-&emsp; \_printf("Today is %s, march %dth", "tuesday", 15)
+int main() {
+    int num = 42;
+    float pi = 3.14159;
+    char letter = 'A';
+    char name[] = "Alice";
+    void* ptr = &num;
 
-&emsp; Output: Today is tuesday, march 15th
+    printf("The answer is %d.\n", num);  // prints "The answer is 42."
+    printf("Pi is approximately %f.\n", pi);  // prints "Pi is approximately 3.141590."
+    printf("The first letter of the alphabet is %c.\n", letter);  // prints "The first letter of the alphabet is A."
+    printf("My name is %s.\n", name);  // prints "My name is Alice."
+    printf("The value of the pointer is %p.\n", ptr);  // prints "The value of the pointer is 0x7ffeeb04ccbc."
 
-###### Note: In order to print a % use %%.
+    return 0;
+}
+```
 
-### Conversion Specifiers
+## Conclusion
 
-&emsp; **d, i** &emsp;Converts the argument to a signed decimal
-
-##### Example:
-
-&emsp; \_printf("My favourite number is: %d", 15);
-
-##### Expected output:
-
-&emsp; My favourite number is: 15
-
-&emsp; **u, o, x, X** &emsp;Converts the argument to an unsigned base
-
-##### Examples:
-
-&emsp; \_printf("Today is: %u", 15); <- (u stands for unsigned decimal)\
-&emsp; \_printf("10 in octal is: %o", 10); \
-&emsp; \_printf("Lowercase hexadecimal: %x", 29); \
-&emsp; \_printf("Uppercase hexadecimal: %X", 29); <- (uppercase letters)
-
-##### Expected output:
-
-&emsp; Today is: 15 \
-&emsp; 10 in octal is: 12 \
-&emsp; Lowercase hexadecimal: 1d \
-&emsp; Uppercase hexadecimal: 1D
-
-&emsp; **b** &emsp;Converts the argument to an unsigned binary
-
-##### Example:
-
-&emsp; \_printf("20 in binary is: %b", 20);
-
-##### Expected output:
-
-&emsp; 20 in binary is: 10100
-
-&emsp; **c** &emsp;Converts the value of an int (see ASCII table) into a character
-
-##### Example:
-
-&emsp; \_printf("The initial of my name is: %c", 'N'); <- Just 78 also works
-
-##### Expected output:
-
-&emsp; The initial of my name is: N
-
-&emsp; **s** &emsp;Takes a pointer to an array of characters (a string, excluding the '\0' (null char))
-
-##### Example:
-
-&emsp; \_printf("My name is: %s", "Nacho");
-
-##### Expected output:
-
-&emsp; My name is: Nacho
-
-&emsp; **p** &emsp;Takes an address as a parameters and prints it in hexadecimal
-
-##### Example:
-
-&emsp; char \*pointer = "pointer";
-
-&emsp; \_printf("The address of my %s is: %p", pointer, &ptr);
-
-##### Expected output:
-
-&emsp; The address of my pointer is: 0x7fff55dc8440 (random address value in hex value)
-
-&emsp; **r** &emsp;Takes a pointer to an array of characters (a string) and prints it in reverse
-
-##### Example:
-
-&emsp; \_printf("My name in reverse is: %r", "Nacho");
-
-##### Expected output:
-
-&emsp; My name in reverse is: ohcaN
-
-&emsp; **R** &emsp;Takes a pointer to an array of characters (a string) and converts it to Rot13
-
-##### Example:
-
-&emsp; \_printf("My name in rot13 is: %R", "Nacho");
-
-##### Expected output:
-
-&emsp; My name in rot13 is: Anpub
-
-&emsp; **S** &emsp;Takes a pointer to an array of characters (a string) but print the value of non-printable chars in hex
-
-##### Example:
-
-&emsp; \_printf("%S", "The value of \\n is \n");
-
-##### Expected output:
-
-&emsp; The value of \n is \x0A
-
-### RETURN VALUE
-
-&emsp; The value of the return is the amount of characters printed excluding the null char
-
-&emsp; For example: int rvalue = \_printf("Hello"); \
-Output: Hello\
-&emsp; \_printf("rvalue is: %d", rvalue);\
-Output: rvalue is: 4
-
-## Flowchart
-
-![App Screenshot](https://i.postimg.cc/KvVjgKvs/Flowchart-about-printf.png)
+The `printf()` function in C is a powerful and versatile tool for formatting and printing data. By using format strings and format specifiers, you can control exactly how your data is printed and make your output more readable and informative. With its wide range of options and simple syntax, `printf()` is a fundamental part of the C language that every programmer should know.
