@@ -1,0 +1,134 @@
+.\" Manpage for my own _printf."
+.TH man 3 "15 Mar 2022" "1.0" "_printf man page"
+.SH NAME
+printf \- prints out all what you want to format
+.SH SYNOPSIS
+
+#include 'main.h'
+
+int printf(const char *format, ...);
+
+.SH DESCRIPTION
+The _printf is a function that takes a format and can take n parameters. In order to display those parameters in a specific way it is necessary to specify it in the format(with % and a valid conversion). Then sends the formatted output to the standard output.
+.SH USAGE EXAMPLE
+_printf("Hello %s", "world!");
+
+ Output: Hello world!
+
+Could also take no parameters:
+
+_printf("Hello World!");
+
+ Output: Hello world!
+
+Could also take more than one parameter:
+
+ _printf("Today is %s, march %dth", "tuesday", 15)
+
+ Output: Today is tuesday, march 15th
+.SH Conversion Specifiers
+ d, i Converts the argument to a signed decimal
+
+Example:
+
+ _printf("My number favourite is: %d", 15);
+
+Expected output:
+
+ My number favourite is: 15
+
+ u, o, x, X Converts the argument to an unsigned base
+
+Examples:
+
+ _printf("Today is: %u", 15); <- (u stands for unsigned decimal)
+
+ _printf("10 in octal is: %o", 10);
+
+ _printf("Lowercase hexadecimal: %x", 29);
+
+ _printf("Uppercase hexadecimal: %X", 29); <- (uppercase letters)
+
+Expected output:
+
+Today is: 15
+
+10 in octal is: 12
+
+Lowercase hexadecimal: 1d
+
+Uppercase hexadecimal: 1D
+
+b Converts the argument to an unsigned binary
+
+Example:
+
+ _printf("20 in binary is: %b", 20);
+
+Expected output:
+
+ 20 in binary is: 10100
+
+ c Converts the value of an int (see ASCII table) into a character
+
+Example:
+
+ _printf("The initial of my name is: %c", 'N'); <- Just 78 also works
+
+Expected output:
+
+ The initial of my name is: N
+
+ s Takes a pointer to an array of characters (a string, excluding the '\0' (null char))
+
+Example:
+
+ _printf("My name is: %s", "Nacho");
+
+Expected output:
+
+ My name is: Nacho
+
+ p Takes an address as a parameters and prints it in hexadecimal
+
+Example:
+
+ char *pointer = "pointer";
+
+ _printf("The address of my %s is: %p", pointer, &ptr);
+
+Expected output:
+
+ The address of my pointer is: 0x7fff55dc8440 (random address value in hex value)
+
+ r Takes a pointer to an array of characters (a string) and prints it in reverse
+
+Example:
+
+ _printf("My name in reverse is: %r", "Nacho");
+
+Expected output:
+
+ My name in reverse is: ohcaN
+
+ R Takes a pointer to an array of characters (a string) and converts it to Rot13
+
+Example:
+
+ _printf("My name in rot13 is: %R", "Nacho");
+
+Expected output:
+
+ My name in rot13 is: Anpub
+
+ S Takes a pointer to an array of characters (a string) but print the value of non-printable chars in hex
+
+Example:
+
+ _printf("%S", "The value of \n is \n");
+
+Expected output:
+
+ The value of \n is \x0A
+.SH AUTHOR
+Nacho Peralta (Nachop51 @github)
