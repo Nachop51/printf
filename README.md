@@ -87,7 +87,7 @@ int main() {
 
 ## Printf Flags, Width, Precision, and Length Modifiers in C
 
-The `printf()` function in C provides a variety of options for formatting and printing data to the console or other output devices. In addition to format specifiers, which specify the type of data to be printed, `printf()` also supports flags, width, precision, and length modifiers that can be used to control the formatting of the output.
+The `_printf()` function in C provides a variety of options for formatting and printing data to the console or other output devices. In addition to format specifiers, which specify the type of data to be printed, `_printf()` also supports flags, width, precision, and length modifiers that can be used to control the formatting of the output.
 
 ### Flags
 
@@ -107,11 +107,11 @@ For example, the `%d` format specifier normally prints an integer value without 
 int main(void) {
     int num = 42;
 
-    printf("%d\n", num);         // prints "42"
-    printf("%+d\n", num);        // prints "+42"
-    printf("% d\n", num);        // prints " 42"
-    printf("%05d\n", num);       // prints "00042"
-    printf("%-5d\n", num);       // prints "42   "
+    _printf("%d\n", num);         // prints "42"
+    _printf("%+d\n", num);        // prints "+42"
+    _printf("% d\n", num);        // prints " 42"
+    _printf("%05d\n", num);       // prints "00042"
+    _printf("%-5d\n", num);       // prints "42   "
 
     return 0;
 }
@@ -127,8 +127,8 @@ Width specifies the minimum number of characters to be printed for each value. I
 int main() {
     int num = 42;
 
-    printf("%5d\n", num);   // prints "   42"
-    printf("%10d\n", num);  // prints "        42"
+    _printf("%5d\n", num);   // prints "   42"
+    _printf("%10d\n", num);  // prints "        42"
 
     return 0;
 }
@@ -144,12 +144,12 @@ Precision specifies the number of decimal places to be printed for floating-poin
 int main() {
     float pi = 3.14159;
 
-    printf("%.2f\n", pi);   // prints "3.14"
-    printf("%.5f\n", pi);   // prints "3.14159"
+    _printf("%.2f\n", pi);   // prints "3.14"
+    _printf("%.5f\n", pi);   // prints "3.14159"
 
     char name[] = "Alice";
 
-    printf("%.3s\n", name);  // prints "Ali"
+    _printf("%.3s\n", name);  // prints "Ali"
 
     return 0;
 }
@@ -185,16 +185,97 @@ int main() {
 
 ## Testing
 
-To test your C program that uses `printf()`, you can run it from the command line and check the output. You can also use a tool like `valgrind` to check for memory leaks and other errors.
+To test the `_printf()` function, you can write test cases that verify the output for different format strings and argument values. Here are some examples of test cases:
 
-Here's an example of how to test the `program` executable from the previous example:
+### Example 1: Basic usage
+
+```c
+int num = 42;
+_printf("The answer is %d\n", num);
+```
+
+This should output:
 
 ```
-./program
+The answer is 42
 ```
 
-This will run the program and output the results to the console. You can then check that the output matches what you expect.
+### Example 2: Multiple arguments
+
+```c
+int num1 = 10, num2 = 20;
+_printf("The numbers are %d and %d\n", num1, num2);
+```
+
+This should output:
+
+```
+The numbers are 10 and 20
+```
+
+### Example 3: Formatting with flags and width
+
+```c
+int num = 42;
+_printf("The answer is %05d\n", num);
+```
+
+This should output:
+
+```
+The answer is 00042
+```
+
+### Example 4: Formatting with precision
+
+```c
+double num = 3.14159265358979323846;
+_printf("The value of pi is %.2f\n", num);
+```
+
+This should output:
+
+```
+The value of pi is 3.14
+```
+
+### Example 5: Special characters and escape sequences
+
+```c
+_printf("The path is C:\\Program Files\\ProgramName\n");
+```
+
+This should output:
+
+```
+The path is C:\Program Files\ProgramName
+```
+
+### Example 6: Corner cases
+
+```c
+_printf("The number is %d\n", 42);        // Basic usage
+_printf("%d %d %d\n", 1, 2, 3);           // Multiple arguments
+_printf("The answer is %05d\n", 42);      // Formatting with flags and width
+_printf("The value of pi is %.2f\n", 3.14);    // Formatting with precision
+_printf("The character is '%c'\n", 'A');  // Character argument
+_printf("The string is \"%s\"\n", "Hello, world!"); // String argument
+_printf("The pointer is %p\n", &num);     // Pointer argument
+_printf("The value in hex is %x\n", 255); // Hexadecimal formatting
+_printf("The value is %+d\n", -42);       // Sign flag
+_printf("The value is % d\n", 42);        // Space flag
+_printf("The value is %*d\n", 5, 42);     // Asterisk width
+_printf("The value is %.*f\n", 2, 3.14159); // Asterisk precision
+```
+
+You should verify that the output of each test case matches the expected output. You can also test edge cases and invalid input, such as passing the wrong number or type of arguments to `_printf()`.
 
 ## Conclusion
 
-The `printf()` function in C is a powerful and versatile tool for formatting and printing data. By using format strings and format specifiers, you can control exactly how your data is printed and make your output more readable and informative. With its wide range of options and simple syntax, `printf()` is a fundamental part of the C language that every programmer should know.
+The `_printf()` function in C is a powerful and versatile tool for formatting and printing data. By using format strings and format specifiers, you can control exactly how your data is printed and make your output more readable and informative. With its wide range of options and simple syntax, `_printf()` is a fundamental part of the C language that every programmer should know.
+
+## Authors
+
+- **Ignacio Peralta** - [Nachop51](https://github.com/Nachop51)
+  - Email: ignacio.peralta@holbertonschool.com
+  - LinkedIn: [Ignacio Peralta](https://www.linkedin.com/in/ignacio-peralta-dev/)
